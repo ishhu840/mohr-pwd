@@ -142,24 +142,24 @@ st.write(f"**18 to 60:** {len(filtered_df[filtered_df['Age Group'] == '18 to 60'
 st.write(f"**Above 60:** {len(filtered_df[filtered_df['Age Group'] == 'Above 60'])}")
 
 # Age distribution graph
-st.subheader("\ud83d\udcca Age Distribution")
+st.subheader(" Age Distribution")
 filtered_age_counts = filtered_df['Age Group'].value_counts()
 st.bar_chart(filtered_age_counts)
 
 # Gender distribution graph
-st.subheader("\ud83d\udcca Gender Distribution")
+st.subheader(" Gender Distribution")
 st.bar_chart(filtered_df['Gender'].value_counts())
 
 # Marital status graph
-st.subheader("\ud83d\udcca Marital Status Distribution")
+st.subheader(" Marital Status Distribution")
 st.bar_chart(filtered_df['Married/Unmarried'].value_counts())
 
 # Education level graph
-st.subheader("\ud83d\udcca Education Level Distribution")
+st.subheader(" Education Level Distribution")
 st.bar_chart(filtered_df['Qualification'].value_counts())
 
 # Disability type graph (Sorted and Improved)
-st.subheader("\ud83d\udcca Disability Type Distribution")
+st.subheader(" Disability Type Distribution")
 
 disability_counts = filtered_df['Disability'].value_counts().sort_values(ascending=True)
 
