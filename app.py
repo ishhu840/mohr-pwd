@@ -4,6 +4,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime
 
+hide_share_button = """
+    <style>
+    [data-testid="stToolbar"] {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_share_button, unsafe_allow_html=True)
+
 # --- Authentication ---
 def check_login():
     if "authenticated" not in st.session_state:
