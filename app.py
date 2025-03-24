@@ -27,9 +27,16 @@ def check_login():
 
 check_login()  # Call the login function before proceeding
 
-# --- Load the dataset ---
+# Load the dataset
 file_path = 'CRPD Final All Data.xlsx'  # Adjust if necessary
-disabled_df = pd.read_excel(file_path, sheet_name='Final Data')
+disabled_df = pd.read_excel(
+    io=file_path,
+    engine='openpyxl',
+    sheet_name='Final Data', 
+    skiprows=0,
+    usecols='A:L',
+    nrows=200000, 
+)
 
 # Clean up column names
 disabled_df.columns = disabled_df.columns.str.strip()
@@ -136,24 +143,24 @@ st.write(f"**18 to 60:** {len(filtered_df[filtered_df['Age Group'] == '18 to 60'
 st.write(f"**Above 60:** {len(filtered_df[filtered_df['Age Group'] == 'Above 60'])}")
 
 # Age distribution graph
-st.subheader("📊 Age Distribution")
+st.subheader("\ud83d\udcca Age Distribution")
 filtered_age_counts = filtered_df['Age Group'].value_counts()
 st.bar_chart(filtered_age_counts)
 
 # Gender distribution graph
-st.subheader("📊 Gender Distribution")
+st.subheader("\ud83d\udcca Gender Distribution")
 st.bar_chart(filtered_df['Gender'].value_counts())
 
 # Marital status graph
-st.subheader("📊 Marital Status Distribution")
+st.subheader("\ud83d\udcca Marital Status Distribution")
 st.bar_chart(filtered_df['Married/Unmarried'].value_counts())
 
 # Education level graph
-st.subheader("📊 Education Level Distribution")
+st.subheader("\ud83d\udcca Education Level Distribution")
 st.bar_chart(filtered_df['Qualification'].value_counts())
 
 # Disability type graph (Sorted and Improved)
-st.subheader("📊 Disability Type Distribution")
+st.subheader("\ud83d\udcca Disability Type Distribution")
 
 disability_counts = filtered_df['Disability'].value_counts().sort_values(ascending=True)
 
@@ -172,3 +179,4 @@ st.pyplot(fig)
 # Show full dataset (optional)
 if st.checkbox("Show Raw Data"):
     st.dataframe(filtered_df)
+
