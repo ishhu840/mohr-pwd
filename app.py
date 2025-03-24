@@ -28,9 +28,8 @@ def check_login():
 check_login()  # Call the login function before proceeding
 
 # Load the dataset
-file_path = 'CRPD Final All Data.xlsx'  # Adjust if necessary
 disabled_df = pd.read_excel(
-    io=file_path,
+    io='CRPD Final All Data.xlsx',
     engine='openpyxl',
     sheet_name='Final Data', 
     skiprows=0,
